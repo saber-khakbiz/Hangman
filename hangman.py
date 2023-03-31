@@ -54,12 +54,17 @@ def play_game():
     guessed_letters = []
     incorrect_guesses = 0
     # Set of letter numbers
-    while incorrect_guesses <= 6:
+    while incorrect_guesses < 6:
+
         # Display the word with guessed letters
         displayed_word = display_word(word, guessed_letters)
         print(displayed_word)
         # Show the Hangman character in each stage
         print(display_hangman(incorrect_guesses))
+        # Check game status
+        if "_" not in displayed_word:
+            print("congratulations! You guessed the word :))")
+            return
         # Request the guessed word from the player
         guess = input("Guess one letter of the word:")
         # Check the letter guessed by the player
@@ -68,12 +73,9 @@ def play_game():
         else:
             print("The letter is incorrect!")
             incorrect_guesses += 1
-        # Check game status
-        if "_" not in displayed_word:
-            print("congratulations! You guessed the word :))")
-            return
-    print("Unfortunately, you lost. The correct word was {} :((".format(word))
 
+    print("Unfortunately, you lost. The correct word was {} :((".format(word))
+    print(display_hangman(-1))
 
 if __name__ == "__main__":
     play_game()

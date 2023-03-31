@@ -61,7 +61,7 @@ def display_hangman(incorrect_guesses):
                    --------
                    |      |
                    |      
-                   |    
+                   |  < You Lose! >
                    |      
                    |      
                    -
