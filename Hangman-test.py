@@ -1,25 +1,18 @@
 import random
 
-# List of words used in the game
-words_list = [
-    "python",
-    "java",
-    "computer",
-    "keyboard",
-    "mouse",
-    "laptop",
-    "notebook",
-    "screen",
-    "printer",
-    "headphone",
-    "speaker",
-    "internet",
-    "database",
-    "server"
-]
+# Open and Read List of words used in the game
+
+with open(".//words.txt") as f:
+    line = f.readlines()
+
+f.close()
+
+# Remove whitespace from list
+
+words_list = [l.strip() for l in line]
+
 
 # Random word selection function
-
 
 def get_word():
     return random.choice(words_list)

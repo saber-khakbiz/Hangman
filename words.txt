@@ -1,0 +1,15 @@
+python
+java
+computer
+maktabkhooneh
+keyboard
+mouse
+laptop
+notebook
+screen
+printer
+headphone
+speaker
+internet
+database
+server
