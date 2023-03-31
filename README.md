@@ -1,6 +1,6 @@
 # Hangman Game in Python
 
-![Hangman Game in Python](hangman.png)
+![Hangman Game in Python](https://github.com/saber-khakbiz/Hangman/blob/master/hangman-logo.png)
 
 This is a simple command-line implementation of the classic game of Hangman, written in Python.
 
