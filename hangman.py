@@ -1,5 +1,5 @@
 import random
-
+from hangmanCh import display_hangman
 # Open and Read List of words used in the game
 
 with open(".//words.txt") as f:
@@ -43,76 +43,6 @@ def check_letter(word, guessed_letters, letter):
     else:
         return False
 
-# The function of displaying the character of Hangman at each stage of the game
-
-
-def display_hangman(incorrect_guesses):
-    stages = [
-        """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / \\
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / 
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |      
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|
-                   |      |
-                   |     
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      O
-                   |      |
-                   |      |
-                   |     
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      O
-                   |    
-                   |      
-                   |      
-                   -
-                """,
-        """
-                   --------
-                   |      |
-                   |      
-                   |    
-                   |      
-                   |      
-                   -
-                """
-    ]
-    return stages[incorrect_guesses]
 
 # Function to run the game
 
