@@ -9,7 +9,7 @@ f.close()
 
 # Remove whitespace from list
 
-words_list = [l.strip() for l in line]
+words_list = [l.strip().lower() for l in line]
 
 
 # Random word selection function
@@ -75,7 +75,7 @@ def play_game():
             incorrect_guesses += 1
 
     print("Unfortunately, you lost. The correct word was {} :((".format(word))
-    print(display_hangman(-1))
+    print(display_hangman(-1),)
 
 if __name__ == "__main__":
     play_game()

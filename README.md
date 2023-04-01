@@ -19,6 +19,7 @@ The Hangman game requires Python 3.x to be installed on your system. No addition
 The project contains the following files:
 
 - `hangman.py` - the main script to run the game
+- `hangmanCls.py` - the main script to run the game (implemented using classes)
 - `words.txt` - a text file containing a list of words that the game chooses from
 - `README.md` - this file
 
