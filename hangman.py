@@ -77,5 +77,6 @@ def play_game():
     print("Unfortunately, you lost. The correct word was {} :((".format(word))
     print(display_hangman(-1),)
 
+
 if __name__ == "__main__":
     play_game()

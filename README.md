@@ -20,6 +20,7 @@ The project contains the following files:
 
 - `hangman.py` - the main script to run the game
 - `hangmanCls.py` - the main script to run the game (implemented using classes)
+- `hangmanCh.py` - displaying the character of Hangman at each stage the game
 - `words.txt` - a text file containing a list of words that the game chooses from
 - `README.md` - this file
 
