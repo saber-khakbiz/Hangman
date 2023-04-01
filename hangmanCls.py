@@ -1,52 +1,58 @@
+
 import random
+from hangmanCh import display_hangman as HANGMAN_FIGURES
+
 
 class Hangman:
-    
-    def __init__(self, wordlist, difficulty='normal'):
+    def __init__(self, wordlist):
         self.word = random.choice(wordlist)
-        if difficulty == 'easy':
-            self.remaining_guesses = 8
-        elif difficulty == 'hard':
-            self.remaining_guesses = 4
-        else:
-            self.remaining_guesses = 6
+        self.remaining_guesses = 6
         self.guessed_letters = set()
 
     def guess(self, letter):
-        if letter in self.guessed_letters:
-            print("You already guessed that letter.")
-        elif letter in self.word:
-            self.guessed_letters.add(letter)
-            print("Correct!")
-        else:
-            self.guessed_letters.add(letter)
+        self.guessed_letters.add(letter)
+        if letter not in self.word:
             self.remaining_guesses -= 1
-            print("Incorrect.")
-        self.display()
 
-    def display(self):
-        print(f"Word: {' '.join(letter if letter in self.guessed_letters else '_' for letter in self.word)}")
-        print(f"Incorrect guesses: {' '.join(sorted(self.guessed_letters - set(self.word)))}")
-        print(f"Remaining guesses: {self.remaining_guesses}")
+    def get_display(self):
+        display = ''
+        for letter in self.word:
+            if letter in self.guessed_letters:
+                display += letter + ' '
+            else:
+                display += '_ '
+        return display.strip()
 
+    def get_figure(self):
+        return HANGMAN_FIGURES(6 - self.remaining_guesses)
 
     def is_game_over(self):
-        return self.remaining_guesses == 0 or set(self.word) == self.guessed_letters
+        if self.remaining_guesses == 0:
+            return True
+        for letter in self.word:
+            if letter not in self.guessed_letters:
+                return False
+        return True
 
     def play(self):
         print("Welcome to Hangman!")
         while not self.is_game_over():
+            print(self.get_figure())
+            print(self.get_display())
             letter = input("Guess a letter: ").lower()
             self.guess(letter)
+        print(self.get_figure())
+        print(self.get_display())
         if self.remaining_guesses == 0:
             print(f"Sorry, you lost. The word was '{self.word}'.")
         else:
             print("Congratulations, you won!")
 
+
 class WordList:
-    def __init__(self,addr:str):
+    def __init__(self, addr: str):
         self.addr = addr
-    
+
     def Createlist(self):
         # Example usage
         with open(self.addr) as f:
@@ -58,6 +64,8 @@ class WordList:
         wordlist = [l.strip().lower() for l in line]
         return wordlist
 
-wordlist = WordList(".//words.txt").Createlist()
-game = Hangman(wordlist, "hard")
-game.play()
+
+if __name__ == "__main__":
+    wordlist = WordList(".//words.txt").Createlist()
+    game = Hangman(wordlist)
+    game.play()
