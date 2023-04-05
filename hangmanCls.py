@@ -44,9 +44,9 @@ class Hangman:
         print(self.get_figure())
         print(self.get_display())
         if self.remaining_guesses == 0:
-            print(f"Sorry, you lost. The word was '{self.word}'.")
+            print(f"Sorry, you lost. The word was\n '{self.word}'.")
         else:
-            print("Congratulations, you won!")
+            print("Congratulations, you won!\n")
 
 
 class WordList:
